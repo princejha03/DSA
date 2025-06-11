@@ -1,0 +1,106 @@
+// SELECTION SORTING//
+#include<iostream>
+using namespace std;
+void selectionsort(int arr[],int n){
+    for(int i=0;i<=n-2;i++){
+        int min=i;
+    for(int j=i;j<=n-1;j++){
+        if(arr[j]<arr[min]){
+            min=j;
+        }
+    }
+        int temp= arr[min];
+        arr[min]=arr[i];
+        arr[i]=temp;
+    }
+}
+int main(){
+    int n;
+    cout << "number of elements: ";
+    cin>> n;
+    int arr[n];
+    cout << "un sorted array is: ";
+    for(int i=0;i<n;i++) cin>> arr[i];
+    cout << "Sorted array is: ";
+    selectionsort(arr,n);
+    for(int i=0;i<n;i++){
+        cout << arr[i]<<" ";
+    }
+    return 0;
+}
+
+//Bubble sort//
+#include<iostream>
+using namespace std;
+void bubblesort(int arr[],int n){
+    for(int i=0;i<n-1;i++){
+        bool swapped=false;
+        for(int j=0;j<n-i-1;j++){
+            if(arr[j]>arr[j+1]){
+                int temp=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
+                
+                swapped =true;
+            }
+        }
+        if(!swapped){
+            break;
+        }
+        
+    }
+}
+int main(){
+    int n;
+    cout << "enter number of elements: ";
+    cin>>n;
+    int arr[n];
+    cout <<"unsorted array: ";
+    for(int i=0;i<n;i++) cin>> arr[i];
+    cout <<"sorted array: ";
+    bubblesort(arr,n);
+    for(int j=0;j<n;j++){
+        cout<< arr[j]<<" ";
+    }
+    return 0;
+}
+// insertion sort//
+#include <iostream>
+using namespace std;
+
+void insertionSort(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];        // Current element to insert
+        int j = i - 1;
+
+        // Move elements greater than key one position ahead
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+
+        arr[j + 1] = key;  // Insert the key at the correct position
+    }
+}
+
+int main() {
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    int arr[n];
+    cout << "Enter array elements: ";
+    for (int i = 0; i < n; i++) cin >> arr[i];
+
+    cout << "Unsorted array: ";
+    for (int i = 0; i < n; i++) cout << arr[i] << " ";
+    cout << endl;
+
+    insertionSort(arr, n);
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) cout << arr[i] << " ";
+    cout << endl;
+
+    return 0;
+}
