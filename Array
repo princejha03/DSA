@@ -139,3 +139,24 @@ bool issorted(int n, vector<int> arr) {
     return true;
 }
 
+5. remove duplicate elements
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Remove duplicates from a sorted array and return new length
+int removedup(int n, vector<int>& arr) {
+    if (n == 0) return 0;
+
+    int i = 0;
+    for (int j = 1; j < n; j++) {
+        if (arr[i] != arr[j]) {
+            i++;
+            arr[i] = arr[j];
+        }
+    }
+    return i + 1;
+}
+
+
+
