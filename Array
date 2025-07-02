@@ -19,6 +19,47 @@ class Solution {
         return seclargest;
     }
 };
+
+**Reverse a number:***
+
+#include<iostream>
+using namespace std;
+
+void reverse(int n, int arr[]) {
+    int start = 0;
+    int end = n - 1;
+    while(start <= end) {
+        swap(arr[start], arr[end]);
+        start++;
+        end--;
+    }
+}
+
+void printArray(int n, int arr[]) {
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int n;
+    cout << "Enter the number: ";
+    cin >> n;
+
+    int arr[n];
+    cout << "Enter the elements: ";
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    cout << "Original array: ";
+    printArray(n, arr);
+    reverse(n, arr);
+    cout << "Reversed array: ";
+    printArray(n, arr);
+    return 0;
+}
+
 2. sec largest 
 #include <iostream>
 #include <vector>
@@ -156,6 +197,44 @@ int removedup(int n, vector<int>& arr) {
         }
     }
     return i + 1;
+}
+6. swap alternative array 
+#include<iostream>
+using namespace std;
+
+void swapalternate(int n, int arr[]) {
+    for(int i = 0; i < n - 1; i += 2) {
+        swap(arr[i], arr[i + 1]);
+    }
+}
+
+void printarray(int n, int arr[]) {
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    int arr[n];
+    cout << "Enter the elements: ";
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    cout << "Original array: ";
+    printarray(n, arr);
+
+    swapalternate(n, arr);
+
+    cout << "Array after swapping alternate elements: ";
+    printarray(n, arr);
+
+    return 0;
 }
 
 
